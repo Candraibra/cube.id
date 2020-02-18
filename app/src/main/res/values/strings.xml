@@ -13,4 +13,14 @@
     <string name="_200">200</string>
     <string name="choose">Choose</string>
     <string name="pindah_result">Pindah Result</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="forgot">Forgot</string>
+    <string name="home">Home</string>
+    <string name="movie">Movie</string>
+    <string name="tv_show">Tv Show</string>
+    <string name="settings">Settings</string>
 </resources>

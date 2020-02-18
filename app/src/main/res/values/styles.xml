@@ -16,4 +16,13 @@
         <item name="android:textColor">@color/colorFontSub</item>
     </style>
 
+<!--    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">-->
+<!--        <item name="fontFamily">@font/acumin_demi</item>-->
+<!--        -->
+<!--    </style>-->
+
+<!--    <style name="Widget.BottomNavigationViewInactive" parent="Widget.Design.BottomNavigationView">-->
+<!--        <item name="fontFamily">@font/acumin_regular</item>-->
+<!--    </style>-->
+
 </resources>
