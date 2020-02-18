@@ -1,4 +1,4 @@
-package com.candraibra.barvolume.login
+package com.candraibra.barvolume.ui.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

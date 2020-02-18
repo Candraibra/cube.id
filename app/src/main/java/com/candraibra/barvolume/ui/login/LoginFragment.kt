@@ -1,4 +1,4 @@
-package com.candraibra.barvolume.login
+package com.candraibra.barvolume.ui.login
 
 
 import android.content.Intent
@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.candraibra.barvolume.R
-import com.candraibra.barvolume.home.BottomNavActivity
+import com.candraibra.barvolume.ui.home.BottomNavActivity
 
 /**
  * A simple [Fragment] subclass.
@@ -51,6 +51,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
             R.id.btnLogin -> {
                 val intent = Intent(activity, BottomNavActivity::class.java)
                 startActivity(intent)
+                activity?.finish()
             }
             R.id.btnForgot -> navController.navigate(R.id.action_loginFragment_to_forgotFragment)
         }
