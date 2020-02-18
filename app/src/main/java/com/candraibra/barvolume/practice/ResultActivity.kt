@@ -1,4 +1,4 @@
-package com.candraibra.barvolume
+package com.candraibra.barvolume.practice
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.candraibra.barvolume.R
 
 class ResultActivity : AppCompatActivity(), View.OnClickListener {
 

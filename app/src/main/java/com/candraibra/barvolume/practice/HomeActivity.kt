@@ -1,4 +1,4 @@
-package com.candraibra.barvolume
+package com.candraibra.barvolume.practice
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,9 +10,10 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.candraibra.barvolume.IntentExplicit.Companion.EXTRA_DATA
-import com.candraibra.barvolume.IntentExplicit.Companion.EXTRA_PERSON
-import com.candraibra.barvolume.ResultActivity.Companion.RESULT_CODE
+import com.candraibra.barvolume.practice.IntentExplicit.Companion.EXTRA_DATA
+import com.candraibra.barvolume.practice.IntentExplicit.Companion.EXTRA_PERSON
+import com.candraibra.barvolume.R
+import com.candraibra.barvolume.practice.ResultActivity.Companion.RESULT_CODE
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
@@ -78,12 +79,20 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_pindah -> {
                 val moveIntent = Intent(this@HomeActivity, IntentExplicit::class.java)
                 moveIntent.putExtra(EXTRA_DATA, tvResult.text)
-                moveIntent.putExtra(EXTRA_PERSON, Person("Candra", 18, "canisanie@gmail.com"))
+                moveIntent.putExtra(EXTRA_PERSON,
+                    Person(
+                        "Candra",
+                        18,
+                        "canisanie@gmail.com"
+                    )
+                )
                 startActivity(moveIntent)
             }
             R.id.btn_result -> {
                 val moveResult = Intent(this@HomeActivity, ResultActivity::class.java)
-                startActivityForResult(moveResult, REQUEST_CODE)
+                startActivityForResult(moveResult,
+                    REQUEST_CODE
+                )
             }
         }
     }

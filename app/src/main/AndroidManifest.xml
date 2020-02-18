@@ -12,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResultActivity"></activity>
-        <activity android:name=".IntentExplicit" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".home.BottomNavActivity"></activity>
+        <activity android:name=".practice.ResultActivity" />
+        <activity android:name=".practice.IntentExplicit" />
+        <activity android:name=".practice.HomeActivity" />
+        <activity android:name=".login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

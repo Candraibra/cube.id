@@ -1,8 +1,9 @@
-package com.candraibra.barvolume
+package com.candraibra.barvolume.practice
 
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.candraibra.barvolume.R
 
 class IntentExplicit : AppCompatActivity() {
     companion object {
