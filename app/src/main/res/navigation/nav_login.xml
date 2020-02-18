@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.candraibra.barvolume.login.SplashFragment"
+        android:name="com.candraibra.barvolume.ui.login.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.candraibra.barvolume.login.LoginFragment"
+        android:name="com.candraibra.barvolume.ui.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.candraibra.barvolume.login.RegisterFragment"
+        android:name="com.candraibra.barvolume.ui.login.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register">
         <action
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/forgotFragment"
-        android:name="com.candraibra.barvolume.login.ForgotFragment"
+        android:name="com.candraibra.barvolume.ui.login.ForgotFragment"
         android:label="fragment_forgot"
         tools:layout="@layout/fragment_forgot">
         <action

@@ -20,7 +20,14 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            buildConfigField "String", "BASE_URL", "https://api.themoviedb.org/3"
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            buildConfigField "String", "BASE_URL", "https://api.themoviedb.org/3"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
         }
     }
     androidExtensions {
@@ -47,4 +54,13 @@ dependencies {
 
     def material_version = "1.2.0-alpha04"
     implementation "com.google.android.material:material:$material_version"
+
+    //network
+    def retrofit_version = "2.7.1"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    //debug network
+    def okHttp_version = "4.3.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttp_version"
 }
