@@ -1,4 +1,4 @@
-package com.candraibra.barvolume.home
+package com.candraibra.barvolume.ui.home
 
 
 import android.os.Bundle

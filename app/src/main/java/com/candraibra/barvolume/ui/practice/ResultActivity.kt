@@ -1,4 +1,4 @@
-package com.candraibra.barvolume.practice
+package com.candraibra.barvolume.ui.practice
 
 import android.content.Intent
 import android.os.Bundle

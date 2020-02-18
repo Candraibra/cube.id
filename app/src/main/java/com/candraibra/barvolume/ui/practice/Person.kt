@@ -1,4 +1,4 @@
-package com.candraibra.barvolume.practice
+package com.candraibra.barvolume.ui.practice
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

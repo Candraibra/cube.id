@@ -1,4 +1,4 @@
-package com.candraibra.barvolume.practice
+package com.candraibra.barvolume.ui.practice
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,10 +10,10 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.candraibra.barvolume.practice.IntentExplicit.Companion.EXTRA_DATA
-import com.candraibra.barvolume.practice.IntentExplicit.Companion.EXTRA_PERSON
+import com.candraibra.barvolume.ui.practice.IntentExplicit.Companion.EXTRA_DATA
+import com.candraibra.barvolume.ui.practice.IntentExplicit.Companion.EXTRA_PERSON
 import com.candraibra.barvolume.R
-import com.candraibra.barvolume.practice.ResultActivity.Companion.RESULT_CODE
+import com.candraibra.barvolume.ui.practice.ResultActivity.Companion.RESULT_CODE
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
     companion object {

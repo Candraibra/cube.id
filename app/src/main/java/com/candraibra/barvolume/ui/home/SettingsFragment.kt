@@ -1,4 +1,4 @@
-package com.candraibra.barvolume.home
+package com.candraibra.barvolume.ui.home
 
 
 import android.os.Bundle
@@ -12,14 +12,14 @@ import com.candraibra.barvolume.R
 /**
  * A simple [Fragment] subclass.
  */
-class TvFragment : Fragment() {
+class SettingsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tv, container, false)
+        return inflater.inflate(R.layout.fragment_settings, container, false)
     }
 
 
