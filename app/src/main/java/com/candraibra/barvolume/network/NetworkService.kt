@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-public class NetworkService {
+class NetworkService {
 
     private fun getNetwork(): Retrofit {
         return Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
@@ -18,8 +18,7 @@ public class NetworkService {
 
     private fun getInterceptor(): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
-        httpLoggingInterceptor.level =
-            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
         return OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor)
             .connectTimeout(30, TimeUnit.SECONDS)
@@ -28,7 +27,7 @@ public class NetworkService {
             .build()
     }
 
-    public fun getApi(): ApiService {
+    fun getApi(): ApiService {
         return getNetwork().create(ApiService::class.java)
     }
 }
