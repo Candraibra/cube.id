@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout.VERTICAL
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.candraibra.barvolume.R
 import com.candraibra.barvolume.ui.viewmodel.MovieViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -48,7 +46,6 @@ class HomeFragment : Fragment() {
 
         viewModel.getData().observe(this, Observer { movie ->
             rvCarousel.setHasFixedSize(true)
-            rvCarousel.addItemDecoration(DividerItemDecoration(activity, VERTICAL))
             val adapter = CarouselAdapter(activity!!.baseContext, movie.results)
             rvCarousel.adapter = adapter
         })
