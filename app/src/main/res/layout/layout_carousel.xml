@@ -19,6 +19,5 @@
             tools:ignore="ContentDescription"
             tools:src="@drawable/preview" />
 
-
     </androidx.cardview.widget.CardView>
 </LinearLayout>
