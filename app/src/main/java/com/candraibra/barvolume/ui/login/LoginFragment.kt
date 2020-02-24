@@ -43,6 +43,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
         btnForgot.setOnClickListener(this)
         btnRegister.setOnClickListener(this)
 
+
+
     }
 
     override fun onClick(v: View) {

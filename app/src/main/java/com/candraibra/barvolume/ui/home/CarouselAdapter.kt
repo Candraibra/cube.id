@@ -11,15 +11,9 @@ import com.candraibra.barvolume.R
 import com.candraibra.barvolume.model.MovieItem
 import kotlinx.android.synthetic.main.layout_carousel.view.*
 
-class CarouselAdapter(private val context: Context, private val movieList: List<MovieItem>) :
-    RecyclerView.Adapter<CarouselAdapter.Holder>() {
+class CarouselAdapter(private val context: Context, private val movieList: List<MovieItem>) : RecyclerView.Adapter<CarouselAdapter.Holder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        return Holder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.layout_carousel,
-                parent,
-                false
-            )
+        return Holder(LayoutInflater.from(parent.context).inflate(R.layout.layout_carousel, parent, false)
         )
     }
 
