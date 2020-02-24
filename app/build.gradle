@@ -65,13 +65,14 @@ dependencies {
     implementation "androidx.navigation:navigation-ui:$nav_version"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
 
-    def material_version = "1.2.0-alpha04"
+    def material_version = "1.2.0-alpha05"
     implementation "com.google.android.material:material:$material_version"
 
     //network
     def retrofit_version = "2.7.1"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
 
     //debug network
     def okHttp_version = "4.3.1"
@@ -80,4 +81,7 @@ dependencies {
     def glide_version = "4.3.1"
     implementation "com.github.bumptech.glide:glide:$glide_version"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.7'
 }

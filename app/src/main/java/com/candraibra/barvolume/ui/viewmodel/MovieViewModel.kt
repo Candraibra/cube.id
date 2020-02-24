@@ -1,77 +1,40 @@
 package com.candraibra.barvolume.ui.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.candraibra.barvolume.BuildConfig
 import com.candraibra.barvolume.model.MovieResponse
 import com.candraibra.barvolume.network.NetworkService
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
+import retrofit2.HttpException
+import androidx.lifecycle.MutableLiveData as MLiveData
+
 
 class MovieViewModel : ViewModel() {
-    private var data = MutableLiveData<MovieResponse>()
-//    private var status = MutableLiveData<Boolean>()
+    private var data = MLiveData<MovieResponse>()
 
     init {
         getPopular()
     }
 
-    //    private fun getData() {
-//
-//        status.value = true
-//
-//        NetworkService().getApi().getMovieId("111", BuildConfig.API_KEY)
-//            .enqueue(object : Callback<MovieItem> {
-//                override fun onFailure(call: Call<MovieItem>, t: Throwable) {
-//                    status.value = true
-//                    Log.d("movieViewModelFailure", t.toString())
-//                }
-//
-//                override fun onResponse(call: Call<MovieItem>, response: Response<MovieItem>) {
-//                    status.value = false
-//
-//                    if (response.isSuccessful) {
-//                        data.value = response.body()
-//                    } else {
-//                        status.value = true
-//                    }
-//
-//
-//                }
-//            })
-//    }
-//
-//    fun setData(): MutableLiveData<MovieItem> {
-//        return data
-//    }
-//
-//    fun getStatus(): MutableLiveData<Boolean> {
-//
-//        status.value = true
-//
-//        return status
-//
-//
-//    }
     private fun getPopular() {
+        val compositeDisposable = CompositeDisposable()
         NetworkService().getApi().getPopularMovie(BuildConfig.API_KEY, 1)
-            .enqueue(object : Callback<MovieResponse> {
-                override fun onFailure(call: Call<MovieResponse>, t: Throwable?) {
-                    Log.d("failure",t?.localizedMessage.toString())
-                }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                data.postValue(it)
+            }, {
+                val code = (it as HttpException).code()
+                Log.d("dhaia", it.toString())
+                Log.d("dhaia", code.toString())
 
-                override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
-                    if (response.isSuccessful){
-                        data.postValue(response.body())
-                    }
-                }
-
-            })
+            }).let(compositeDisposable::add)
     }
 
-        fun getData(): MutableLiveData<MovieResponse> {
+    fun getData(): MLiveData<MovieResponse> {
         return data
     }
 }
