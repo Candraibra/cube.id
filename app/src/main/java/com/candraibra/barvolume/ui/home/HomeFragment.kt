@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.candraibra.barvolume.R
 import com.candraibra.barvolume.ui.home.adapter.ViewPagerAdapter
-import com.candraibra.barvolume.ui.viewmodel.MovieViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -17,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
  * A simple [Fragment] subclass.
  */
 class HomeFragment : Fragment() {
-    private lateinit var viewModel: MovieViewModel
+    //    private lateinit var viewModel: MovieViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
