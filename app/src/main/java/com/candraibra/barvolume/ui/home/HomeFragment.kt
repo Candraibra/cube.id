@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.viewpager.widget.ViewPager
 import com.candraibra.barvolume.R
+import com.candraibra.barvolume.ui.home.adapter.ViewPagerAdapter
 import com.candraibra.barvolume.ui.viewmodel.MovieViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.fragment_home.*
  */
 class HomeFragment : Fragment() {
     private lateinit var viewModel: MovieViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,7 +27,7 @@ class HomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MovieViewModel::class.java)
+//        viewModel = ViewModelProviders.of(this).get(MovieViewModel::class.java)
 
 //        viewModel.getStatus().observe(this, Observer { t ->
 //            if (t == false) {
@@ -44,12 +43,31 @@ class HomeFragment : Fragment() {
 //
 //        })
 
-        viewModel.getData().observe(this, Observer { movie ->
-            rvCarousel.setHasFixedSize(true)
-            val adapter = CarouselAdapter(activity!!.baseContext, movie.results)
-            rvCarousel.adapter = adapter
-        })
+//        viewModel.getData().observe(this, Observer { movie ->
+//            rvCarousel.setHasFixedSize(true)
+//            val adapter =
+//                CarouselAdapter(
+//                    activity!!.baseContext,
+//                    movie.results
+//                )
+//            rvCarousel.adapter = adapter
+//        })
+        setupViewPager(viewPager)
+        tabLayout.setupWithViewPager(viewPager)
 
+    }
+
+    private fun setupViewPager(viewPager: ViewPager) {
+        val adapter = ViewPagerAdapter(activity!!.supportFragmentManager)
+        adapter.addFragment(
+            MovieTrendingFragment(),
+            resources.getString(R.string.movie)
+        )
+        adapter.addFragment(
+            TvTrendingFragment(),
+            resources.getString(R.string.tv_show)
+        )
+        viewPager.adapter = adapter
     }
 
 }
