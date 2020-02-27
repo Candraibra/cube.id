@@ -1,7 +1,10 @@
 package com.candraibra.barvolume.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class MovieItem(
 
     @field:SerializedName("overview")
@@ -29,7 +32,7 @@ data class MovieItem(
     val backdropPath: String? = null,
 
     @field:SerializedName("release_date", alternate = ["first_air_date"])
-    val releaseDate: String? = null,
+    val releaseDate: String,
 
     @field:SerializedName("popularity")
     val popularity: Double? = null,
@@ -45,4 +48,4 @@ data class MovieItem(
 
     @field:SerializedName("vote_count")
     val voteCount: Int? = null
-)
+):Parcelable

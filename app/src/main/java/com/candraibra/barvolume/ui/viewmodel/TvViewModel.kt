@@ -34,6 +34,11 @@ class TvViewModel : ViewModel() {
             }).let(compositeDisposable::add)
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("cleared","onCleared().toString()")
+    }
+
     fun getData(): MLiveData<MovieResponse> {
         return data
     }

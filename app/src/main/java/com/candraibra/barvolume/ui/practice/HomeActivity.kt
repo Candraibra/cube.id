@@ -14,10 +14,13 @@ import com.candraibra.barvolume.ui.practice.IntentExplicit.Companion.EXTRA_DATA
 import com.candraibra.barvolume.ui.practice.IntentExplicit.Companion.EXTRA_PERSON
 import com.candraibra.barvolume.R
 import com.candraibra.barvolume.ui.practice.ResultActivity.Companion.RESULT_CODE
+import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         private const val STATE_RESULT = "state_result"
+        public const val EXTRA_TITLE = "state_redasult"
+
         const val REQUEST_CODE = 100
     }
 
@@ -44,6 +47,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnCalculate.setOnClickListener(this)
         btnMove.setOnClickListener(this)
         btnMoveResult.setOnClickListener(this)
+
+        btn_result.text = intent.getStringExtra(EXTRA_TITLE)
 
         if (savedInstanceState != null) {
             val result = savedInstanceState.getString(STATE_RESULT) as String

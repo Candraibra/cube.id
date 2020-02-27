@@ -50,10 +50,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tvHeaderHome"
         app:layout_constraintWidth_percent="0.5"
         app:tabGravity="fill"
-        app:tabIndicator="@drawable/tab_indicator"
         app:tabIndicatorColor="@color/colorPrimary"
+        app:tabIndicatorFullWidth="false"
+        app:tabSelectedTextColor="@color/colorPrimary"
         app:tabTextAppearance="@style/CustomTabText"
-        app:tabTextColor="@color/colorPrimary" />
+        app:tabTextColor="@color/colorFontSub" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"

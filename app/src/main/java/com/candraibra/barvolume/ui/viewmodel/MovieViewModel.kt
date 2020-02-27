@@ -21,8 +21,8 @@ class MovieViewModel : ViewModel() {
 
     private fun getPopular() {
         val compositeDisposable = CompositeDisposable()
-        NetworkService().getApi().getPopularMovie(BuildConfig.API_KEY, 1)
-            .subscribeOn(Schedulers.io())
+        val api = NetworkService().getApi().getPopularMovie(BuildConfig.API_KEY, 1)
+        api.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 data.postValue(it)
