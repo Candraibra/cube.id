@@ -3,30 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home"
-    app:startDestination="@id/homeFragment">
-
+    app:startDestination="@id/movieFragment2">
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.candraibra.barvolume.ui.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home">
-
-    </fragment>
-    <fragment
-        android:id="@+id/movieFragment"
+        android:id="@+id/movieFragment2"
         android:name="com.candraibra.barvolume.ui.home.MovieFragment"
         android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie">
-    </fragment>
+        tools:layout="@layout/fragment_movie" />
     <fragment
-        android:id="@+id/tvFragment"
+        android:id="@+id/tvFragment2"
         android:name="com.candraibra.barvolume.ui.home.TvFragment"
         android:label="fragment_tv"
-        tools:layout="@layout/fragment_tv">
-    </fragment>
+        tools:layout="@layout/fragment_tv" />
     <fragment
-        android:id="@+id/settingsFragment"
+        android:id="@+id/settingsFragment2"
         android:name="com.candraibra.barvolume.ui.home.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.candraibra.barvolume.ui.home.MovieTrendingFragment"
+        android:label="fragment_movie_tranding"
+        tools:layout="@layout/fragment_movie_tranding" />
 </navigation>

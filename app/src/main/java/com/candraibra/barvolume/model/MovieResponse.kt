@@ -1,18 +1,22 @@
 package com.candraibra.barvolume.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+
+@Parcelize
 data class MovieResponse(
 
     @SerializedName("page")
-    val page: Int? = null,
+    val page: Int,
 
-    @field:SerializedName("total_pages")
+    @SerializedName("total_pages")
     val totalPages: Int,
 
-    @field:SerializedName("results")
-    val results: List<MovieItem> ,
+    @SerializedName("results")
+    val results: List<MovieItem>,
 
-    @field:SerializedName("total_results")
-    val totalResults: Int? = null
-)
+    @SerializedName("total_results")
+    val totalResults: Int
+):Parcelable

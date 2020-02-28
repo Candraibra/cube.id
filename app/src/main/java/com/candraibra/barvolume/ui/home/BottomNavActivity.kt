@@ -4,35 +4,36 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.candraibra.barvolume.R
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_bottom_nav.*
 
 
 class BottomNavActivity : AppCompatActivity() {
-    private lateinit var bottomNavigationView: BottomNavigationView
     private var doubleBackToExitPressedOnce = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bottom_nav)
+        val navController: NavController = Navigation.findNavController(this, R.id.nav_host_home)
 
-        setupBottomNav()
+        setupWithNavController(bottom_navigation, navController)
     }
 
-    private fun setupBottomNav() {
-        bottomNavigationView = findViewById(R.id.bottom_navigation)
-        val navigationController = Navigation.findNavController(this, R.id.nav_host_home)
-
-        //kalo let itu ibaratnya kaya dia memasasukan dirinya ke function dan bisa dipanggil dengan "it"
-        //bottomNavigationView.let { NavigationUI.setupWithNavController(it, navigationController) }
-
-        //atau bisa custom kek gini
-        //bottomNavigationView.let {navvvv -> NavigationUI.setupWithNavController(navvvv,navigationController) }
-
-        //but, menurutku paling simple gini, tapi yang atas harus tetep inget yack tergantung case juga
-        NavigationUI.setupWithNavController(bottomNavigationView, navigationController)
-    }
+//    private fun setupBottomNav() {
+//        bottomNavigationView = findViewById(R.id.bottom_navigation)
+//        val navigationController = Navigation.findNavController(this, R.id.nav_host_home)
+//
+//        //kalo let itu ibaratnya kaya dia memasasukan dirinya ke function dan bisa dipanggil dengan "it"
+//        //bottomNavigationView.let { NavigationUI.setupWithNavController(it, navigationController) }
+//
+//        //atau bisa custom kek gini
+//        //bottomNavigationView.let {navvvv -> NavigationUI.setupWithNavController(navvvv,navigationController) }
+//
+//        //but, menurutku paling simple gini, tapi yang atas harus tetep inget yack tergantung case juga
+//        NavigationUI.setupWithNavController(bottomNavigationView, navigationController)
+//    }
 
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {

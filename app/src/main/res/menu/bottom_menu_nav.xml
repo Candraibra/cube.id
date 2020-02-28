@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/homeFragment2"
         android:icon="@drawable/ic_bar_chart_black"
         android:title="@string/home" />
 
     <item
-        android:id="@+id/movieFragment"
+        android:id="@+id/movieFragment2"
         android:icon="@drawable/ic_movie_black"
         android:title="@string/movie" />
 
 
     <item
-        android:id="@+id/tvFragment"
+        android:id="@+id/tvFragment2"
         android:icon="@drawable/ic_live_tv_black"
         android:title="@string/tv_show" />
 
     <item
-        android:id="@+id/settingsFragment"
+        android:id="@+id/settingsFragment2"
         android:icon="@drawable/ic_settings_black"
         android:title="@string/settings" />
 

@@ -2,6 +2,7 @@ package com.candraibra.barvolume.ui.home
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,9 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+Log.d("onCreate","koakd")    }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 //        viewModel = ViewModelProviders.of(this).get(MovieViewModel::class.java)
@@ -67,6 +71,12 @@ class HomeFragment : Fragment() {
             resources.getString(R.string.tv_show)
         )
         viewPager.adapter = adapter
+    }
+
+    override fun onResume() {
+        super.onResume()
+        tvHeaderHome.text ="onResume"
+
     }
 
 }
