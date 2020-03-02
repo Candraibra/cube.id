@@ -27,7 +27,9 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-Log.d("onCreate","koakd")    }
+        Log.d("onCreate", "koakd")
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 //        viewModel = ViewModelProviders.of(this).get(MovieViewModel::class.java)
@@ -72,11 +74,4 @@ Log.d("onCreate","koakd")    }
         )
         viewPager.adapter = adapter
     }
-
-    override fun onResume() {
-        super.onResume()
-        tvHeaderHome.text ="onResume"
-
-    }
-
 }

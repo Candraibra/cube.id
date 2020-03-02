@@ -14,7 +14,7 @@ import androidx.lifecycle.MutableLiveData as MLiveData
 
 class MovieViewModel : ViewModel() {
 
-    private var data = MLiveData<MutableList<MovieItem>>(mutableListOf())
+    private var data = MLiveData<MutableList<MovieItem>>()
     var isInitialized = false
 
     fun init(page: Int) {
