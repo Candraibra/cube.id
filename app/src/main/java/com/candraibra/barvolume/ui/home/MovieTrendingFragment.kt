@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.candraibra.barvolume.R
 import com.candraibra.barvolume.model.MovieItem
+import com.candraibra.barvolume.ui.home.adapter.ExampleAdapter
 import com.candraibra.barvolume.ui.home.adapter.TrendingAdapter
 import com.candraibra.barvolume.ui.viewmodel.MovieViewModel
 import com.candraibra.barvolume.utils.EndlessScrollListener
@@ -21,6 +22,8 @@ import kotlinx.android.synthetic.main.fragment_movie_tranding.*
  */
 class MovieTrendingFragment : Fragment() {
     private lateinit var viewModel: MovieViewModel
+
+    private lateinit var adapter: ExampleAdapter
 
     var movieList = mutableListOf<MovieItem>()
 
@@ -36,27 +39,33 @@ class MovieTrendingFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_movie_tranding, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MovieViewModel::class.java)
         viewModel.init(page)
-        viewModel.getData().observe(viewLifecycleOwner, Observer { movie ->
-            movieList = movie
-            val adapter =
-                TrendingAdapter(
-                    activity!!.baseContext,
-                    movieList
-                )
-            rvTrendingMovie.adapter = adapter
-            scrollListener = object : EndlessScrollListener() {
-                override fun onLoadMore() {
-                    if (movieList.isNotEmpty()) {
-                        page += 1
-                        viewModel.getPopular(page)
-                    }
+        adapter = ExampleAdapter(activity!!.baseContext, movieList)
+        initRv()
+        viewModel.observeData(this, onGotData())
+    }
+
+    private fun onGotData(): Observer<MutableList<MovieItem>> = Observer {
+        movieList.clear()
+        movieList.addAll(it)
+        adapter.hideLoading()
+        adapter.notifyDataSetChanged()
+    }
+
+    private fun initRv() {
+        scrollListener = object : EndlessScrollListener() {
+            override fun onLoadMore() {
+                if (movieList.isNotEmpty()) {
+                    page += 1
+                    adapter.showLoading()
+                    viewModel.getPopular(page)
                 }
             }
-            rvTrendingMovie.addOnScrollListener(scrollListener)
-        })
+        }
+        rvTrendingMovie.addOnScrollListener(scrollListener)
+        rvTrendingMovie.adapter = adapter
     }
 }

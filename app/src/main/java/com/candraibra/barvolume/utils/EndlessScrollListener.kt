@@ -3,7 +3,6 @@ package com.candraibra.barvolume.utils
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-
 abstract class EndlessScrollListener : RecyclerView.OnScrollListener() {
     private var mPreviousTotal = 0
     private var mLoading = true
@@ -13,8 +12,7 @@ abstract class EndlessScrollListener : RecyclerView.OnScrollListener() {
         super.onScrolled(recyclerView, dx, dy)
         val visibleItemCount = recyclerView.childCount
         val totalItemCount = recyclerView.layoutManager!!.itemCount
-        val firstVisibleItem =
-            (recyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+        val firstVisibleItem = (recyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
         if (mLoading) {
             if (totalItemCount > mPreviousTotal) {
                 mLoading = false

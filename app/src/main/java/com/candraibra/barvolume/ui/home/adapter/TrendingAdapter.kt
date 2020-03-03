@@ -2,7 +2,6 @@ package com.candraibra.barvolume.ui.home.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,7 @@ import kotlinx.android.synthetic.main.layout_item_tranding.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class TrendingAdapter(private val context: Context, private val movieList: List<MovieItem>) :
+class TrendingAdapter(private val context: Context, private var movieList: List<MovieItem>) :
     RecyclerView.Adapter<TrendingAdapter.Holder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         return Holder(

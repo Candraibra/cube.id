@@ -27,7 +27,7 @@
         <activity android:name="com.candraibra.barvolume.ui.practice.ResultActivity" />
         <activity android:name="com.candraibra.barvolume.ui.practice.IntentExplicit" />
         <activity android:name="com.candraibra.barvolume.ui.practice.HomeActivity" />
-        <activity android:name="com.candraibra.barvolume.ui.login.MainActivity"></activity>
+        <activity android:name="com.candraibra.barvolume.ui.login.MainActivity" />
     </application>
 
 </manifest>

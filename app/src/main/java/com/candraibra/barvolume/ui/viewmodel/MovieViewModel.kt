@@ -1,6 +1,8 @@
 package com.candraibra.barvolume.ui.viewmodel
 
 import android.util.Log
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.candraibra.barvolume.BuildConfig
 import com.candraibra.barvolume.model.MovieItem
@@ -14,7 +16,8 @@ import androidx.lifecycle.MutableLiveData as MLiveData
 
 class MovieViewModel : ViewModel() {
 
-    private var data = MLiveData<MutableList<MovieItem>>()
+    private var data = MLiveData<MutableList<MovieItem>>(mutableListOf())
+    private val compositeDisposable = CompositeDisposable()
     var isInitialized = false
 
     fun init(page: Int) {
@@ -26,11 +29,10 @@ class MovieViewModel : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        Log.d("onCleared", data.value.toString())
+        compositeDisposable.dispose()
     }
 
     fun getPopular(page: Int) {
-        val compositeDisposable = CompositeDisposable()
         val api = NetworkService().getApi().getPopularMovie(BuildConfig.API_KEY, page)
         api.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -45,7 +47,7 @@ class MovieViewModel : ViewModel() {
             }).let(compositeDisposable::add)
     }
 
-    fun getData(): MLiveData<MutableList<MovieItem>> {
-        return data
-    }
+
+    fun observeData(owner: LifecycleOwner, observer: Observer<MutableList<MovieItem>>) = data.observe(owner, observer)
+
 }
