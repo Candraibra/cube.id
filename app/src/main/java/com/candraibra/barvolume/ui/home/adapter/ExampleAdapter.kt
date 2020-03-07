@@ -15,17 +15,17 @@ import com.candraibra.barvolume.ui.practice.HomeActivity
 import kotlinx.android.synthetic.main.layout_item_tranding.view.*
 
 class ExampleAdapter(private val context: Context, private var movieList: List<MovieItem>) :
-    RecyclerView.Adapter<ExampleAdapter.BaseItemHolder>() {
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
-        private const val VIEW_TYPE_LOADING = 1
-        private const val VIEW_TYPE_NORMAL = 2
+        private const val VIEW_TYPE_LOADING = 90
+        private const val VIEW_TYPE_NORMAL = 190
     }
 
     private var mShowLoading = false
 
     @SuppressLint("InflateParams")
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseItemHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             VIEW_TYPE_NORMAL -> NormalViewHolder(
@@ -40,14 +40,13 @@ class ExampleAdapter(private val context: Context, private var movieList: List<M
 
 
     override fun getItemCount(): Int {
-        return movieList.size + if (mShowLoading) {
-            1
+        return movieList.size + if (mShowLoading) { 1
         } else {
             0
         }
     }
 
-    override fun onBindViewHolder(holder: BaseItemHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is NormalViewHolder) {
             val data = movieList[position]
 
@@ -74,21 +73,8 @@ class ExampleAdapter(private val context: Context, private var movieList: List<M
         return VIEW_TYPE_LOADING
     }
 
-    fun hideLoading() {
-        mShowLoading = false
-        //be careful with the index
-        notifyItemRemoved(itemCount)
-    }
 
-    fun showLoading() {
-        mShowLoading = true
-        //be careful with the index
-        notifyItemInserted(itemCount - 1)
-    }
+    class LoadingViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
-    open class BaseItemHolder(view: View) : RecyclerView.ViewHolder(view)
-
-    class LoadingViewHolder(view: View) : BaseItemHolder(view)
-
-    class NormalViewHolder(view: View) : BaseItemHolder(view)
+    class NormalViewHolder(view: View) : RecyclerView.ViewHolder(view)
 }

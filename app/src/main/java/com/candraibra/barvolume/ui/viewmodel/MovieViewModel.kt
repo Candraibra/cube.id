@@ -1,8 +1,6 @@
 package com.candraibra.barvolume.ui.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.candraibra.barvolume.BuildConfig
 import com.candraibra.barvolume.model.MovieItem
@@ -16,7 +14,7 @@ import androidx.lifecycle.MutableLiveData as MLiveData
 
 class MovieViewModel : ViewModel() {
 
-    private var data = MLiveData<MutableList<MovieItem>>(mutableListOf())
+    var data = MLiveData<MutableList<MovieItem>>(mutableListOf())
     private val compositeDisposable = CompositeDisposable()
     var isInitialized = false
 
@@ -46,8 +44,5 @@ class MovieViewModel : ViewModel() {
                 }
             }).let(compositeDisposable::add)
     }
-
-
-    fun observeData(owner: LifecycleOwner, observer: Observer<MutableList<MovieItem>>) = data.observe(owner, observer)
 
 }
