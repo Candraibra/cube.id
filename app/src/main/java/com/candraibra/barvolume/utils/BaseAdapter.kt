@@ -14,19 +14,14 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return getDataSize() + if (showLoading) {
-            1
-        } else {
-            0
-        }
+        return getDataSize() + if (showLoading) { 1 } else { 0 }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == VIEW_TYPE_LOADING) {
             LoadingViewHolder(
                 LayoutInflater.from(parent.context).inflate(
-                    R.layout.layout_loading_horizontal,
-                    parent,false
+                    R.layout.layout_loading_horizontal, parent, false
                 )
             )
 
@@ -47,13 +42,14 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
         if (position >= getDataSize()) {
-            return VIEW_TYPE_LOADING }
+            return VIEW_TYPE_LOADING
+        }
         return 0
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder !is LoadingViewHolder){
-            onBindNormalViewHolder(holder,position)
+        if (holder !is LoadingViewHolder) {
+            onBindNormalViewHolder(holder, position)
         }
     }
 
