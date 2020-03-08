@@ -32,17 +32,19 @@ class MovieViewModel : ViewModel() {
 
     fun getPopular(page: Int) {
         val api = NetworkService().getApi().getPopularMovie(BuildConfig.API_KEY, page)
-        api.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                data.postValue(data.value?.apply { addAll(it.results) })
-            }, {
+        api.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe({
+            data.postValue(data.value?.apply { addAll(it.results) })
+        }, {
+            try {
                 val code = (it as HttpException).code()
                 if (code == 404) {
                     Log.d("dhaia", it.toString())
                     Log.d("dhaia", code.toString())
                 }
-            }).let(compositeDisposable::add)
+            } catch (t: Throwable) {
+                Log.d("Erorr", t.message!!)
+            }
+        }).let(compositeDisposable::add)
     }
 
 }
