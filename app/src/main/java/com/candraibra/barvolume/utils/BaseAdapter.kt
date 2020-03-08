@@ -14,7 +14,11 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return getDataSize() + if (showLoading) { 1 } else { 0 }
+        return getDataSize() + if (showLoading) {
+            1
+        } else {
+            0
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
