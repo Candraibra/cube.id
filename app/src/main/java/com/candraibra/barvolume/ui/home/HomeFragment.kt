@@ -60,7 +60,6 @@ class HomeFragment : Fragment() {
         //        })
         setupViewPager(viewPager)
         tabLayout.setupWithViewPager(viewPager)
-
     }
     private fun setupViewPager(viewPager: ViewPager) {
 
