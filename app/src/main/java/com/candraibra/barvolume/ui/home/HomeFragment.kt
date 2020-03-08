@@ -62,7 +62,6 @@ class HomeFragment : Fragment() {
         tabLayout.setupWithViewPager(viewPager)
 
     }
-
     private fun setupViewPager(viewPager: ViewPager) {
 
         val adapter = ViewPagerAdapter(activity!!.supportFragmentManager)
