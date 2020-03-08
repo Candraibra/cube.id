@@ -7,12 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager.widget.ViewPager
 import com.candraibra.barvolume.R
 import com.candraibra.barvolume.ui.home.adapter.ViewPagerAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_movie_tranding.*
 
 
 /**
@@ -61,6 +59,7 @@ class HomeFragment : Fragment() {
         setupViewPager(viewPager)
         tabLayout.setupWithViewPager(viewPager)
     }
+
     private fun setupViewPager(viewPager: ViewPager) {
 
         val adapter = ViewPagerAdapter(activity!!.supportFragmentManager)
