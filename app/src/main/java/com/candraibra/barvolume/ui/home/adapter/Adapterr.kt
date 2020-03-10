@@ -36,8 +36,9 @@ class Adapterr(private var movieList: List<MovieItem>) : BaseAdapter() {
             view.ivTrending.load(BuildConfig.IMG_URL + movieItem.posterPath) {
                 crossfade(true)
             }
-            //                        Glide.with(view.root.context).asBitmap()
-            //                            .load(BuildConfig.IMG_URL + movieItem.posterPath).into(view.ivTrending)
+            //   Glide.with(view.root.context).asBitmap()
+            //        .load(BuildConfig.IMG_URL + movieItem.posterPath)
+            //        .into(view.ivTrending)
 
             view.tvTitleMovie.text = movieItem.title
 
