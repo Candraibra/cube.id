@@ -5,9 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
-import coil.transform.RoundedCornersTransformation
 import com.candraibra.barvolume.BuildConfig
-import com.candraibra.barvolume.R
 import com.candraibra.barvolume.databinding.LayoutItemTrandingBinding
 import com.candraibra.barvolume.model.MovieItem
 import com.candraibra.barvolume.ui.practice.HomeActivity
