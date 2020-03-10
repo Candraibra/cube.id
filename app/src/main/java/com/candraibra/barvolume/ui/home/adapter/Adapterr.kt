@@ -4,8 +4,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import coil.api.load
+import coil.transform.RoundedCornersTransformation
 import com.candraibra.barvolume.BuildConfig
+import com.candraibra.barvolume.R
 import com.candraibra.barvolume.databinding.LayoutItemTrandingBinding
 import com.candraibra.barvolume.model.MovieItem
 import com.candraibra.barvolume.ui.practice.HomeActivity
@@ -14,8 +16,7 @@ import com.candraibra.barvolume.utils.BaseAdapter
 class Adapterr(private var movieList: List<MovieItem>) : BaseAdapter() {
 
     override fun onCreateNormalViewHolder(
-        parent: ViewGroup,
-        viewType: Int
+        parent: ViewGroup, viewType: Int
     ): RecyclerView.ViewHolder {
         return NormalViewHolder(
             LayoutItemTrandingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -34,9 +35,9 @@ class Adapterr(private var movieList: List<MovieItem>) : BaseAdapter() {
     class NormalViewHolder(val view: LayoutItemTrandingBinding) :
         RecyclerView.ViewHolder(view.root) {
         fun bind(movieItem: MovieItem) {
-            Glide.with(view.root.context).asBitmap()
-                .load(BuildConfig.IMG_URL + movieItem.posterPath)
-                .into(view.ivTrending)
+            view.ivTrending.load(BuildConfig.IMG_URL + movieItem.posterPath){
+                crossfade(true)
+            }
 
             view.tvTitleMovie.text = movieItem.title
 

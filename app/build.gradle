@@ -80,9 +80,8 @@ dependencies {
     def okHttp_version = "4.3.1"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttp_version"
 
-    def glide_version = "4.3.1"
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    def coil_version = "0.9.5"
+    implementation "io.coil-kt:coil:$coil_version"
 
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.7'

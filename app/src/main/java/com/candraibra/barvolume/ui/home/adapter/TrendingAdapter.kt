@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.candraibra.barvolume.BuildConfig
 import com.candraibra.barvolume.R
 import com.candraibra.barvolume.model.MovieItem
@@ -45,8 +44,8 @@ class TrendingAdapter(private val context: Context, private var movieList: List<
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val data = movieList[position]
-        Glide.with(context).asBitmap().load(BuildConfig.IMG_URL + data.posterPath)
-            .into(holder.view.ivTrending)
+//        Glide.with(context).asBitmap().load(BuildConfig.IMG_URL + data.posterPath)
+//            .into(holder.view.ivTrending)
         holder.view.tvTitleMovie.text = data.title
 
         holder.view.tvReleaseDate.text = getDate(data.releaseDate)

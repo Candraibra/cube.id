@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.candraibra.barvolume.BuildConfig
 import com.candraibra.barvolume.R
 import com.candraibra.barvolume.model.MovieItem
@@ -50,8 +49,8 @@ class ExampleAdapter(private val context: Context, private var movieList: List<M
         if (holder is NormalViewHolder) {
             val data = movieList[position]
 
-            Glide.with(context).asBitmap().load(BuildConfig.IMG_URL + data.posterPath)
-                .into(holder.itemView.ivTrending)
+//            Glide.with(context).asBitmap().load(BuildConfig.IMG_URL + data.posterPath)
+//                .into(holder.itemView.ivTrending)
             holder.itemView.tvTitleMovie.text = data.title
 
             holder.itemView.tvReleaseDate.text = data.releaseDate
