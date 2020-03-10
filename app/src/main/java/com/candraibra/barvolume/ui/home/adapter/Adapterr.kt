@@ -33,9 +33,11 @@ class Adapterr(private var movieList: List<MovieItem>) : BaseAdapter() {
     class NormalViewHolder(val view: LayoutItemTrandingBinding) :
         RecyclerView.ViewHolder(view.root) {
         fun bind(movieItem: MovieItem) {
-            view.ivTrending.load(BuildConfig.IMG_URL + movieItem.posterPath){
+            view.ivTrending.load(BuildConfig.IMG_URL + movieItem.posterPath) {
                 crossfade(true)
             }
+            //                        Glide.with(view.root.context).asBitmap()
+            //                            .load(BuildConfig.IMG_URL + movieItem.posterPath).into(view.ivTrending)
 
             view.tvTitleMovie.text = movieItem.title
 

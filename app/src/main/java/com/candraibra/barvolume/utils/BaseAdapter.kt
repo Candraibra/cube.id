@@ -14,11 +14,8 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return getDataSize() + if (showLoading) {
-            1
-        } else {
-            0
-        }
+        return getDataSize() + if (showLoading) 1 else 0
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -35,13 +32,13 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     fun hideLoading() {
         showLoading = false
         //be careful with the index
-        notifyItemRemoved(itemCount)
+//        notifyItemRemoved(itemCount)
     }
 
     fun showLoading() {
         showLoading = true
         //be careful with the index
-        notifyItemInserted(itemCount - 1)
+//        notifyItemInserted(itemCount - 1)
     }
 
     override fun getItemViewType(position: Int): Int {
