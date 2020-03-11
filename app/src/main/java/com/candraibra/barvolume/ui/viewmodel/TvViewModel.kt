@@ -19,12 +19,11 @@ class TvViewModel : ViewModel() {
         getPopular()
     }
 
+    @Throws(Exception::class)
     private fun getPopular() {
         val compositeDisposable = CompositeDisposable()
-        NetworkService().getApi().getPopularTv(BuildConfig.API_KEY, 1)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
+        NetworkService().getApi().getPopularTv(BuildConfig.API_KEY, 1).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe({
                 data.postValue(it)
             }, {
                 val code = (it as HttpException).code()
@@ -32,11 +31,12 @@ class TvViewModel : ViewModel() {
                 Log.d("dhaia", code.toString())
 
             }).let(compositeDisposable::add)
+        throw Exception()
     }
 
     override fun onCleared() {
         super.onCleared()
-        Log.d("cleared","onCleared().toString()")
+        Log.d("cleared", "onCleared().toString()")
     }
 
     fun getData(): MLiveData<MovieResponse> {

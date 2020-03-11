@@ -8,12 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.candraibra.barvolume.R
+import com.candraibra.barvolume.databinding.FragmentMovieTrandingBinding
 import com.candraibra.barvolume.model.MovieItem
 import com.candraibra.barvolume.ui.home.adapter.Adapterr
 import com.candraibra.barvolume.ui.viewmodel.MovieViewModel
 import com.candraibra.barvolume.utils.EndlessScrollListener
-import kotlinx.android.synthetic.main.fragment_movie_tranding.*
 
 
 /**
@@ -28,14 +27,19 @@ class MovieTrendingFragment : Fragment() {
 
     private lateinit var scrollListener: EndlessScrollListener
 
+    private var _binding: FragmentMovieTrandingBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
     var page = 1
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_movie_tranding, container, false)
+        _binding = FragmentMovieTrandingBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,13 +57,13 @@ class MovieTrendingFragment : Fragment() {
             adapter.notifyDataSetChanged()
         })
     }
-//    viewModel.observeData(this, onGotData())
-//    private fun onGotData(): Observer<MutableList<MovieItem>> = Observer {
-//        movieList.clear()
-//        movieList.addAll(it)
-//        adapter.hideLoading()
-//        adapter.notifyDataSetChanged()
-//    }
+    //    viewModel.observeData(this, onGotData())
+    //    private fun onGotData(): Observer<MutableList<MovieItem>> = Observer {
+    //        movieList.clear()
+    //        movieList.addAll(it)
+    //        adapter.hideLoading()
+    //        adapter.notifyDataSetChanged()
+    //    }
 
 
     private fun initRv() {
@@ -72,8 +76,8 @@ class MovieTrendingFragment : Fragment() {
                 }
             }
         }
-        rvTrendingMovie.addOnScrollListener(scrollListener)
-        rvTrendingMovie.adapter = adapter
+        binding.rvTrendingMovie.addOnScrollListener(scrollListener)
+        binding.rvTrendingMovie.adapter = adapter
     }
 }
 
