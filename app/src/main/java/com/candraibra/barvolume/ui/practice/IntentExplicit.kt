@@ -21,8 +21,9 @@ class IntentExplicit : AppCompatActivity() {
         tvResult = findViewById(R.id.tv_result)
         val person = intent.getParcelableExtra(EXTRA_PERSON) as Person
 
-//        val data = intent.getStringExtra(EXTRA_DATA)
-        tvResult.text = "Name : ${person.name.toString()},\nEmail : ${person.email},\nAge : ${person.age}"
+        //        val data = intent.getStringExtra(EXTRA_DATA)
+        tvResult.text =
+            "Name : ${person.name.toString()},\nEmail : ${person.email},\nAge : ${person.age}"
 
     }
 }
