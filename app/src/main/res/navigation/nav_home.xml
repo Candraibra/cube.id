@@ -6,9 +6,13 @@
     app:startDestination="@id/movieFragment2">
     <fragment
         android:id="@+id/movieFragment2"
-        android:name="com.candraibra.barvolume.ui.home.MovieFragment"
+        android:name="com.candraibra.barvolume.ui.home.CategoryFragment"
         android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie" />
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_movieFragment2_to_settingsFragment2"
+            app:destination="@id/settingsFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/tvFragment2"
         android:name="com.candraibra.barvolume.ui.home.TvFragment"

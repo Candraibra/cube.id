@@ -13,10 +13,11 @@ import kotlinx.android.synthetic.main.activity_bottom_nav.*
 
 class BottomNavActivity : AppCompatActivity() {
     private var doubleBackToExitPressedOnce = false
+    private lateinit var navController:NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bottom_nav)
-        val navController: NavController = Navigation.findNavController(this, R.id.nav_host_home)
+         navController= Navigation.findNavController(this, R.id.nav_host_home)
 
         setupWithNavController(bottom_navigation, navController)
     }
@@ -37,7 +38,7 @@ class BottomNavActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed()
+            finish()
             return
         }
 

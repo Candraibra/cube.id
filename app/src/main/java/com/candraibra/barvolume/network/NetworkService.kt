@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 class NetworkService {
 
     private fun getNetwork(): Retrofit {
-        return Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
+        return Retrofit.Builder().baseUrl("https://api.myjson.com/bins/")
             .client(getInterceptor())
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
